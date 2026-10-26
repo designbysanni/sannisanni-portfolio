@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Cycle Labs — Community and Web Design Case Study · Sanni</title>
+  <meta name="description" content="Community growth operations and full-stack web design for a blockchain financial education business. 13+ page platform, Figma brand system, AI-assisted PHP and Stripe backend.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sannisanni.com/bcl/">
+  <meta property="og:title" content="Block Cycle Labs — Community and Web Design Case Study · Sanni">
+  <meta property="og:description" content="Community growth operations and full-stack web design for a blockchain financial education business. 13+ page platform, Figma brand system, AI-assisted PHP and Stripe backend.">
+  <meta property="og:image" content="https://i.ibb.co/pBX4nYBK/Sanni-Sanni.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Block Cycle Labs — Community and Web Design Case Study · Sanni">
+  <meta name="twitter:description" content="Community growth operations and full-stack web design for a blockchain financial education business. 13+ page platform, Figma brand system, AI-assisted PHP and Stripe backend.">
+  <meta name="twitter:image" content="https://i.ibb.co/pBX4nYBK/Sanni-Sanni.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#ffffff;--bg-alt:#f7f7f5;--text-primary:#0a0a0a;--text-secondary:#52525b;--text-muted:#a1a1aa;--border:rgba(0,0,0,0.08);--nav-bg:rgba(255,255,255,0.9);--chip-bg:#f3f4f6;--chip-border:#e5e7eb;--chip-text:#3f3f46}
+    html.dark{--bg:#0a0a0a;--bg-alt:#0d0d0d;--text-primary:#ffffff;--text-secondary:#a1a1aa;--text-muted:#52525b;--border:rgba(255,255,255,0.07);--nav-bg:rgba(10,10,10,0.9);--chip-bg:#1a1a1a;--chip-border:#2a2a2a;--chip-text:#a1a1aa}
+    html,body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-primary);transition:background .3s,color .3s}
+    nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 24px}
+    .nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .nav-logo{font-size:18px;font-weight:800;letter-spacing:-.04em;text-decoration:none;color:var(--text-primary);text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:16px}
+    .nav-back{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+    .nav-back:hover{color:var(--text-primary)}
+    .theme-btn{width:36px;height:36px;border-radius:50%;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-primary);transition:background .2s}
+    .theme-btn:hover{background:var(--border)}
+    .hidden{display:none}
+    .hero{padding:120px 24px 64px;max-width:1200px;margin:0 auto}
+    .case-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.22em;color:var(--text-muted);margin-bottom:16px}
+    .hero-title{font-size:clamp(3rem,8vw,6rem);font-weight:800;letter-spacing:-.04em;line-height:.92;margin-bottom:24px}
+    .hero-sub{font-size:17px;color:var(--text-secondary);max-width:620px;line-height:1.7;margin-bottom:32px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 13px;border-radius:999px;background:var(--chip-bg);border:1px solid var(--chip-border);color:var(--chip-text)}
+    .hero-img{padding:0 24px 64px;max-width:1200px;margin:0 auto}
+    .screenshot{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--bg-alt)}
+    .screenshot img{width:100%;display:block}
+    .stats-band{background:#0a0a0a;color:#fff;padding:52px 24px}
+    .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+    @media(min-width:768px){.stats-inner{grid-template-columns:repeat(3,1fr)}}
+    .stat-item{text-align:center}
+    .stat-num{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+    .stat-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.45);margin-top:6px}
+    .content{max-width:1200px;margin:0 auto;padding:0 24px}
+    .section{padding:60px 0;border-top:1px solid var(--border)}
+    .section-label-sm{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.22em;color:var(--text-muted);margin-bottom:12px}
+    .section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
+    .section-body{font-size:15px;color:var(--text-secondary);line-height:1.75;max-width:680px}
+    .section-body p+p{margin-top:14px}
+    .two-col{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+    @media(min-width:768px){.two-col{grid-template-columns:1fr 1fr;gap:60px}.two-col.rev>*:first-child{order:2}.two-col.rev>*:last-child{order:1}}
+    .result-list{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:680px}
+    .result-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text-secondary);line-height:1.65}
+    .result-list li::before{content:"→";color:var(--text-primary);font-weight:800;flex-shrink:0;margin-top:1px}
+    .page-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .page-tag{font-size:11px;font-weight:600;padding:4px 11px;border-radius:6px;background:var(--chip-bg);border:1px solid var(--chip-border);color:var(--chip-text)}
+    .cta-section{background:#0a0a0a;color:#fff;padding:80px 24px;text-align:center}
+    .cta-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;margin-bottom:16px}
+    .cta-sub{color:rgba(255,255,255,.5);font-size:15px;max-width:480px;margin:0 auto 36px;line-height:1.65}
+    .btn-white{display:inline-block;background:#fff;color:#000;padding:14px 36px;border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.25em;text-decoration:none;transition:opacity .2s}
+    .btn-white:hover{opacity:.85}
+    footer{background:#0a0a0a;color:rgba(255,255,255,.28);padding:24px;font-size:9px;text-transform:uppercase;letter-spacing:.2em;font-weight:700}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    footer a{color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+    footer a:hover{color:#fff}
+    @media(max-width:600px){.hero{padding:100px 20px 48px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Sanni.</a>
+      <div class="nav-right">
+        <a href="/" class="nav-back">← All Work</a>
+        <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+          <svg id="icon-dark" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="hidden"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+          <svg id="icon-light" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="hidden"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <p class="case-label">Case Study 02 · Community and Web Design · Contract, Nov 2024 – 2025</p>
+    <h1 class="hero-title">Block Cycle<br><em style="font-style:italic;color:var(--text-muted)">Labs</em></h1>
+    <p class="hero-sub">Community growth operations and full-stack web design for a blockchain financial education business. I designed the brand, built the platform, and structured a web design partnership that generates recurring revenue.</p>
+    <div class="tag-row">
+      <span class="tag">Skool Community</span><span class="tag">Figma</span><span class="tag">HTML / CSS / JS</span><span class="tag">React / Next.js</span><span class="tag">PHP</span><span class="tag">Stripe</span><span class="tag">Vercel</span><span class="tag">Competitive Analysis</span><span class="tag">Brand Strategy</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <div class="screenshot"><img src="https://i.ibb.co/BVdqsNm9/Screenshot-2026-06-30-141334.png" alt="Block Cycle Labs platform"></div>
+  </div>
+
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">13+</div><div class="stat-lbl">Pages Built</div></div>
+      <div class="stat-item"><div class="stat-num">48hrs</div><div class="stat-lbl">Time to Design Lead</div></div>
+      <div class="stat-item"><div class="stat-num">66/33</div><div class="stat-lbl">Partnership Split</div></div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <p class="section-label-sm">Overview</p>
+      <h2 class="section-title">From Community Member to Design Lead</h2>
+      <div class="section-body">
+        <p>Joined Block Cycle Labs as a Skool community member in November 2024. The founder (Walter Scales) identified the skills within days. Within 48 hours of the first call, I was promoted to design lead, replacing the existing designer.</p>
+        <p>The engagement grew from design lead to full platform build, competitive strategy, and eventually a structured web design partnership within the BCL ecosystem.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="two-col">
+        <div>
+          <p class="section-label-sm">Brand and Design System</p>
+          <h2 class="section-title">Figma to Code — Full Brand System</h2>
+          <div class="section-body">
+            <p>Designed the complete BCL brand system in Figma: typography hierarchy (Outfit for headings, DM Sans for body), color token system (navy #050D1A, blue #1A6EF5, cyan #00D4FF), and a full component library.</p>
+            <p>Presented as an interactive Figma prototype for client approval. Built from the approved design — no handoff gap.</p>
+          </div>
+        </div>
+        <div class="screenshot"><img src="https://i.ibb.co/BVdqsNm9/Screenshot-2026-06-30-141334.png" alt="BCL platform design"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label-sm">Platform Build</p>
+      <h2 class="section-title">13+ Page Digital Platform</h2>
+      <div class="section-body">
+        <p>Built the complete blockcycle.org digital platform from scratch. Every page designed and built by me.</p>
+      </div>
+      <div class="page-list">
+        <span class="page-tag">Home</span><span class="page-tag">Services (Done-For-You System)</span><span class="page-tag">Community Hub</span><span class="page-tag">E-commerce Shop</span><span class="page-tag">Booking</span><span class="page-tag">Income Blueprint</span><span class="page-tag">Toolkit</span><span class="page-tag">Video Sales</span><span class="page-tag">Referral System</span><span class="page-tag">Workshop Delivery</span><span class="page-tag">Waitlist</span><span class="page-tag">Thank You / Confirmation</span><span class="page-tag">Community Welcome</span>
+      </div>
+      <div class="section-body" style="margin-top:24px">
+        <p>Developed an AI-assisted PHP backend covering Stripe payment intents, subscription billing, upsell flows, video gating, referral submission, token validation, and subscription confirmation.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label-sm">Competitive Strategy</p>
+      <h2 class="section-title">Brand Repositioning Recommendation</h2>
+      <div class="section-body">
+        <p>Conducted competitive analysis against Yieldschool and DeFi Masters. Identified that BCL's positioning as a crypto trading community was limiting perceived authority and addressable market.</p>
+        <p>Recommended repositioning to financial education institution. Walter executed on the recommendation. The new positioning became the foundation for the platform content architecture.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label-sm">Partnership</p>
+      <h2 class="section-title">Web Design Partnership Structure</h2>
+      <div class="section-body">
+        <p>In 2026, structured a 66/33 web design partnership: BCL sells website builds to community members, I build them, BCL earns 33%. This created a recurring revenue stream from the relationship beyond the initial contract scope.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label-sm">Results</p>
+      <h2 class="section-title">What Was Delivered</h2>
+      <ul class="result-list">
+        <li>Full brand system designed in Figma and built from approved prototype</li>
+        <li>13+ page platform built and deployed on Hostinger and Vercel</li>
+        <li>AI-assisted PHP backend with Stripe commerce, subscriptions, and referral system</li>
+        <li>Promoted from community member to design lead within 48 hours</li>
+        <li>Competitive analysis delivered and brand repositioning executed</li>
+        <li>66/33 web design partnership structured and active in 2026</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="cta-section">
+    <h2 class="cta-title">Need a builder like this?</h2>
+    <a href="h
