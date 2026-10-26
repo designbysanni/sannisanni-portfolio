@@ -33,7 +33,11 @@
             padding: 5px 11px; border-radius: 999px; border: 1px solid currentColor; opacity: 0.6; }
     /* The shot is an enhancement. If the service is slow or blocked the card
        still reads, because the words carry it and the frame keeps its shape. */
-    .shot { aspect-ratio: 16 / 10; background: #18181b; object-fit: cover; object-position: top; width: 100%; }
+    .shot { aspect-ratio: 16 / 10; background: #18181b; object-fit: cover; object-position: top; width: 100%; display: block; }
+    .shotwrap { position: relative; }
+    .shotwrap::before { content: attr(data-label); position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; color: #71717a; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+    .shotwrap img { position: relative; }
   </style>
 </head>
 <body class="bg-white dark:bg-darkBg text-zinc-900 dark:text-zinc-100 antialiased">
@@ -81,8 +85,8 @@
     <div class="grid md:grid-cols-2 gap-8">
 
       <article class="group">
-        <a href="https://cyan-boar-635081.hostingersite.com/" target="_blank" rel="noopener" class="block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img class="shot" loading="lazy" alt="BuildHer Construction website"
+        <a href="https://cyan-boar-635081.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="BuildHer Construction">
+          <img class="shot" alt="BuildHer Construction website"
                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcyan-boar-635081.hostingersite.com%2F?w=1280">
         </a>
         <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">BuildHer Construction</h3>
@@ -99,8 +103,8 @@
       </article>
 
       <article class="group">
-        <a href="https://aquamarine-flamingo-119598.hostingersite.com/" target="_blank" rel="noopener" class="block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img class="shot" loading="lazy" alt="Scales Prime Construction website"
+        <a href="https://aquamarine-flamingo-119598.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Scales Prime Construction">
+          <img class="shot" alt="Scales Prime Construction website"
                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Faquamarine-flamingo-119598.hostingersite.com%2F?w=1280">
         </a>
         <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Scales Prime Construction</h3>
@@ -117,8 +121,8 @@
       </article>
 
       <article class="group">
-        <a href="https://lime-eel-176003.hostingersite.com/" target="_blank" rel="noopener" class="block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img class="shot" loading="lazy" alt="Stella Construction website"
+        <a href="https://lime-eel-176003.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Stella Construction">
+          <img class="shot" alt="Stella Construction website"
                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Flime-eel-176003.hostingersite.com%2F?w=1280">
         </a>
         <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Stella Construction LLC</h3>
@@ -135,8 +139,8 @@
       </article>
 
       <article class="group">
-        <a href="https://magictracker.cc/" target="_blank" rel="noopener" class="block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img class="shot" loading="lazy" alt="Magic Tracker"
+        <a href="https://magictracker.cc/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Magic Tracker">
+          <img class="shot" alt="Magic Tracker"
                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fmagictracker.cc%2F?w=1280">
         </a>
         <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Magic Tracker</h3>
