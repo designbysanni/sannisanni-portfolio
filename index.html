@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanni Sanni — I build websites</title>
   <meta name="description" content="I build websites, and usually I build yours first and send it over before anything is agreed.">
+  <meta name="theme-color" content="#1a1a1a">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sannisanni.com/">
   <meta property="og:title" content="Sanni Sanni — I build websites">
@@ -12,214 +13,511 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sanni Sanni — I build websites">
   <meta name="twitter:description" content="I build websites, and usually I build yours first and send it over before anything is agreed.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ctext x='50' y='70' font-family='system-ui,sans-serif' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: { colors: { darkBg: '#0a0a0a' }, fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } }
-    }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231a1a1a'/%3E%3Ctext x='50' y='70' font-family='system-ui,sans-serif' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --black: #0a0a0a; }
-    html, body { font-family: 'Plus Jakarta Sans', sans-serif !important; }
-    .hero-title { font-size: clamp(2.6rem, 7.5vw, 6rem); line-height: 0.95; letter-spacing: -0.04em; }
-    .section-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; }
-    .section-heading { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
-    .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.55; transition: opacity 0.2s; }
-    .nav-link:hover { opacity: 1; }
-    .chip { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
-            padding: 5px 11px; border-radius: 999px; border: 1px solid currentColor; opacity: 0.6; }
-    /* The shot is an enhancement. If the service is slow or blocked the card
-       still reads, because the words carry it and the frame keeps its shape. */
-    .shot { aspect-ratio: 16 / 10; background: #18181b; object-fit: cover; object-position: top; width: 100%; display: block; }
-    .shotwrap { position: relative; }
-    .shotwrap::before { content: ''; position: absolute; inset: 0; display: flex; align-items: center;
-      justify-content: center; color: #71717a; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
-    .shotwrap img { position: relative; }
+    /* The page is dark on purpose and does not follow the system theme. Every
+       screenshot on it was taken of a dark or heavily contrasted site, and a
+       white page around them makes nine different brands fight each other. */
+    :root {
+      --bg: #1a1a1a;
+      --panel: #232326;
+      --line: #34343a;
+      --line-soft: #2a2a2e;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --faint: #71717a;
+      --accent: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    .label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--faint); }
+    .h1 { font-size: clamp(2.5rem, 7.5vw, 5.5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 800; margin: 0; }
+    .h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0; }
+    .h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.1; letter-spacing: -0.03em; font-weight: 800; margin: 0; }
+    .lead { font-size: clamp(1.02rem, 2vw, 1.2rem); line-height: 1.65; color: var(--muted); }
+    .body { font-size: 15.5px; line-height: 1.7; color: var(--muted); }
+
+    .btn {
+      display: inline-block; font-weight: 700; font-size: 15px; text-decoration: none;
+      padding: 14px 26px; border-radius: 999px; background: var(--accent); color: #1a1a1a;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: .9; }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--faint); }
+
+    .chip {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+      padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
+    }
+
+    nav.bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(26,26,26,.86); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .bar-in { height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .navlink { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .2em; color: var(--faint); text-decoration: none; }
+    .navlink:hover { color: var(--text); }
+    .bar .btn { padding: 9px 18px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
+
+    /* ---- work rows ---- */
+    .row { display: grid; gap: 34px; align-items: center; padding: 46px 0; border-top: 1px solid var(--line-soft); }
+    @media (min-width: 900px) {
+      .row { grid-template-columns: 1.15fr 1fr; gap: 56px; padding: 62px 0; }
+      .row.flip .shotlink { order: 2; }
+    }
+    .shotlink {
+      display: block; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #242428; text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .shotlink:hover { border-color: #4a4a52; transform: translateY(-2px); }
+    /* The files are already exactly 16:10, so the only job here is to let them
+       scale. height:auto is load-bearing: the width/height attributes on the
+       tag reserve space before load, and without it the height attribute wins
+       and every shot renders full size and crops. */
+    .shotlink img { width: 100%; height: auto; }
+    .shotbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 13px; border-top: 1px solid var(--line);
+      font-size: 11.5px; font-weight: 600; color: var(--faint); background: #19191c;
+    }
+    .shotbar .dom { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .shotbar .go { color: var(--muted); white-space: nowrap; font-weight: 700; }
+    .shotlink:hover .go, .shotlink:hover .dom { color: var(--text); }
+    .kind { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin: 0 0 10px; }
+    .visit { font-weight: 700; font-size: 14.5px; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+    .visit:hover { border-color: var(--text); }
+
+    /* ---- comment thread ---- */
+    .thread { display: grid; gap: 12px; }
+    .cmt { display: flex; gap: 12px; align-items: flex-start; }
+    .cmt.indent { padding-left: 34px; }
+    @media (min-width: 700px) { .cmt.indent { padding-left: 54px; } }
+    .av {
+      width: 34px; height: 34px; border-radius: 999px; flex: 0 0 34px;
+      display: grid; place-items: center; font-size: 13px; font-weight: 800; color: #1a1a1a;
+    }
+    .bub { background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; padding: 12px 16px; min-width: 0; }
+    .who { font-size: 13.5px; font-weight: 700; margin: 0 0 3px; }
+    .said { font-size: 15px; line-height: 1.55; color: #e4e4e7; margin: 0; }
+    .mine .bub { background: #27272b; border-color: #3a3a42; }
+
+    .grid4 { display: grid; gap: 30px; }
+    @media (min-width: 720px) { .grid4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .grid4 { grid-template-columns: repeat(4, 1fr); } }
+    .stepno { font-size: 46px; font-weight: 800; letter-spacing: -.03em; color: #3a3a3f; margin: 0 0 8px; line-height: 1; }
+
+    .statbar { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 26px 0; }
+    .statn { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.03em; margin: 0; }
+    .statl { font-size: 11.5px; color: var(--faint); margin: 5px 0 0; }
+
+    .cred {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 26px;
+      padding: 9px 16px 9px 13px; border: 1px solid var(--line); border-radius: 999px;
+      font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none;
+      transition: border-color .2s ease, color .2s ease;
+    }
+    .cred:hover { border-color: var(--faint); color: var(--text); }
+    .cred .dot { width: 7px; height: 7px; border-radius: 999px; background: #34d399; flex: 0 0 7px; }
+    .cred .credgo { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+
+    section { border-top: 1px solid var(--line-soft); }
+    section.plain { border-top: none; }
+    .pad { padding: 72px 0; }
+    @media (min-width: 900px) { .pad { padding: 100px 0; } }
   </style>
 </head>
-<body class="bg-white dark:bg-darkBg text-zinc-900 dark:text-zinc-100 antialiased">
+<body>
 
-  <nav class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-darkBg/80 border-b border-zinc-100 dark:border-zinc-900">
-    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="#" class="font-extrabold tracking-tight whitespace-nowrap">Sanni Sanni</a>
-      <div class="flex items-center gap-6">
-        <a href="#work" class="nav-link hidden sm:inline">Work</a>
-        <a href="#how" class="nav-link hidden sm:inline">How it works</a>
-        <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener"
-           class="text-[11px] font-extrabold uppercase tracking-[0.18em] bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 px-4 py-2 rounded-full">Book a call</a>
-      </div>
+<nav class="bar">
+  <div class="wrap bar-in">
+    <a href="#top" style="font-weight:800;letter-spacing:-.02em;text-decoration:none;">Sanni Sanni</a>
+    <div style="display:flex;align-items:center;gap:22px;">
+      <a href="#work" class="navlink" style="display:none;" data-sm>Work</a>
+      <a href="#said" class="navlink" style="display:none;" data-sm>Reviews</a>
+      <a href="#how" class="navlink" style="display:none;" data-sm>How it works</a>
+      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a call</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <section class="pt-16 md:pt-24 pb-10 md:pb-14 px-6 max-w-7xl mx-auto">
-    <p class="section-label opacity-50 mb-5">Working with businesses across the US</p>
-    <h1 class="hero-title font-extrabold mb-6">
-      I build websites.<br>Usually before you ask.
-    </h1>
-    <p class="text-lg md:text-xl max-w-2xl opacity-70 leading-relaxed">
-      Usually I build yours first and send it over before anything is agreed, so you can look at
-      the thing instead of reading about it.
+<!-- ============ HERO ============ -->
+<section id="top" class="plain">
+  <div class="wrap" style="padding-top:84px;padding-bottom:52px;">
+    <p class="label" style="margin:0 0 20px;">Working with businesses across the US</p>
+    <h1 class="h1">I build websites.<br>Usually before you ask.</h1>
+    <p class="lead" style="max-width:620px;margin:26px 0 0;">
+      Most of the time I build yours first and send it over before anything is agreed, so you can
+      look at the thing instead of reading about it.
     </p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener"
-         class="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-bold px-6 py-3 rounded-full">Book a 15 minute call</a>
-      <a href="#work" class="border border-zinc-300 dark:border-zinc-700 font-bold px-6 py-3 rounded-full">See the work</a>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;">
+      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a 15 minute call</a>
+      <a href="#work" class="btn btn-ghost">See the work</a>
     </div>
-  </section>
+    <a class="cred" href="https://www.coursera.org/account/accomplishments/professional-cert/3ISGYFGAILQ6"
+       target="_blank" rel="noopener">
+      <span class="dot"></span>
+      Google certified UX designer
+      <span class="credgo">Verify ↗</span>
+    </a>
+  </div>
+</section>
 
-  <section class="border-y border-zinc-100 dark:border-zinc-900 py-8 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-3 gap-6 text-center">
-      <div><p class="text-3xl md:text-4xl font-extrabold tracking-tight">5</p><p class="text-xs opacity-50 mt-1">Sites shown here</p></div>
-      <div><p class="text-3xl md:text-4xl font-extrabold tracking-tight">3</p><p class="text-xs opacity-50 mt-1">Days to a first draft</p></div>
-      <div><p class="text-3xl md:text-4xl font-extrabold tracking-tight">1 wk</p><p class="text-xs opacity-50 mt-1">Start to live</p></div>
-    </div>
-  </section>
+<div class="statbar">
+  <div class="wrap stats">
+    <div><p class="statn">9</p><p class="statl">Sites live right now</p></div>
+    <div><p class="statn">3</p><p class="statl">Days to a first draft</p></div>
+    <div><p class="statn">1 wk</p><p class="statl">Start to live</p></div>
+  </div>
+</div>
 
-  <section id="work" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
-    <p class="section-label opacity-50 mb-3">The work</p>
-    <h2 class="section-heading mb-10">Real companies, real sites.</h2>
+<!-- ============ WORK ============ -->
+<section id="work" class="plain">
+  <div class="wrap" style="padding-top:72px;">
+    <p class="label" style="margin:0 0 14px;">The work</p>
+    <h2 class="h2">Nine live sites. Tap any one to open it.</h2>
+    <p class="body" style="max-width:580px;margin:16px 0 0;">
+      These are not mockups or demos. Every screenshot below links to the real site, running on the
+      real domain, built by me.
+    </p>
+  </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+  <div class="wrap">
 
-      <article class="group">
-        <a href="https://olivaritennis.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Olivari Tennis">
-          <img class="shot" alt="Olivari Tennis website" src="assets/work/olivaritennis.jpg">
-        </a>
-        <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Olivari Tennis</h3>
-        <p class="text-sm opacity-50 mb-3">Coaching programme</p>
-        <p class="opacity-70 leading-relaxed mb-4">
-          A coach with a method and nowhere to sell it. The page opens on the thing a player already
-          feels, which is years of practice and the same mistakes, then puts the programme, the proof
-          and the call in front of them before they have to scroll. Built to turn a visitor into a
-          booked call rather than to list services.
+    <!-- 1 -->
+    <article class="row">
+      <a class="shotlink" href="https://olivaritennis.com/" target="_blank" rel="noopener">
+        <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" loading="eager" width="1280" height="800">
+        <div class="shotbar"><span class="dom">olivaritennis.com</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Coaching programme</p>
+        <h3 class="h3">Olivari Tennis</h3>
+        <p class="body">
+          A coach with a real method and nowhere to sell it. The page opens on the thing a player
+          already feels, which is years of practice and the same mistakes, then puts the programme and
+          the proof in front of them before they have to scroll. Built to turn a visitor into a booked
+          call rather than to list services.
         </p>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
           <span class="chip">Conversion funnel</span><span class="chip">Named programme</span><span class="chip">Book a call</span>
         </div>
-        <a href="https://olivaritennis.com/" target="_blank" rel="noopener" class="font-bold underline underline-offset-4">Visit the site</a>
-      </article>
+        <a class="visit" href="https://olivaritennis.com/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-      <article class="group">
-        <a href="https://cyan-boar-635081.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="BuildHer Construction">
-          <img class="shot" alt="BuildHer Construction website"
-               src="assets/work/buildher.jpg">
-        </a>
-        <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">BuildHer Construction</h3>
-        <p class="text-sm opacity-50 mb-3">Property development</p>
-        <p class="opacity-70 leading-relaxed mb-4">
-          Ten years of work and fifty million in developed assets, and none of it was on the website. The
-          numbers sit up front now and the projects do the talking, so somebody can tell inside one scroll
-          whether this is a firm worth calling.
+    <!-- 2 -->
+    <article class="row flip">
+      <a class="shotlink" href="https://blockcycle.org/" target="_blank" rel="noopener">
+        <img src="assets/work/blockcycle.jpg" alt="Block Cycle website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">blockcycle.org</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Education and community</p>
+        <h3 class="h3">Block Cycle</h3>
+        <p class="body">
+          A rebuild of a site that had grown messy over time. The free workshop became the one thing
+          the page asks you to do, and everything that used to compete with it now sits behind it.
+          Their community was shown both versions side by side and asked to be honest, and you can
+          read what they said further down this page.
         </p>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
+          <span class="chip">Full redesign</span><span class="chip">Workshop funnel</span><span class="chip">Community reviewed</span>
+        </div>
+        <a class="visit" href="https://blockcycle.org/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="row">
+      <a class="shotlink" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
+        <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">buildherconstruction.com</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Property development</p>
+        <h3 class="h3">BuildHer Construction</h3>
+        <p class="body">
+          Ten years of work and fifty million in developed assets, and none of it was on the website.
+          The numbers sit up front now and the projects do the talking, so somebody can tell inside
+          one scroll whether this is a firm worth calling.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
           <span class="chip">Portfolio site</span><span class="chip">Lead capture</span><span class="chip">Mobile first</span>
         </div>
-        <a href="https://cyan-boar-635081.hostingersite.com/" target="_blank" rel="noopener" class="font-bold underline underline-offset-4">Visit the site</a>
-      </article>
+        <a class="visit" href="https://buildherconstruction.com/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-      <article class="group">
-        <a href="https://aquamarine-flamingo-119598.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Scales Prime Construction">
-          <img class="shot" alt="Scales Prime Construction website"
-               src="assets/work/scalesprime.jpg">
-        </a>
-        <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Scales Prime Construction</h3>
-        <p class="text-sm opacity-50 mb-3">Local service business</p>
-        <p class="opacity-70 leading-relaxed mb-4">
-          Everything on the page points at one action, which is requesting a quote, because that is the
-          only thing a visitor can do that turns into money. Phone number in reach on every screen.
+    <!-- 4 -->
+    <article class="row flip">
+      <a class="shotlink" href="https://airikart.com/" target="_blank" rel="noopener">
+        <img src="assets/work/airikart.jpg" alt="Airikart website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">airikart.com</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Creative house</p>
+        <h3 class="h3">Airikart</h3>
+        <p class="body">
+          A studio whose work is the argument, so the site gets out of its way. Big type, a lot of
+          black, and the projects carrying the page. The only thing it asks of you is to start one.
         </p>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
+          <span class="chip">Brand led</span><span class="chip">Project enquiry</span><span class="chip">Editorial layout</span>
+        </div>
+        <a class="visit" href="https://airikart.com/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="row">
+      <a class="shotlink" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">
+        <img src="assets/work/scalesprime.jpg" alt="Scales Prime Construction website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">scalesprimeconstruction.com</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Local service business</p>
+        <h3 class="h3">Scales Prime Construction</h3>
+        <p class="body">
+          Everything on the page points at one action, which is requesting an estimate, because that is
+          the only thing a visitor can do that turns into money. The phone number stays in reach on
+          every screen.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
           <span class="chip">Quote funnel</span><span class="chip">One clear action</span><span class="chip">Click to call</span>
         </div>
-        <a href="https://aquamarine-flamingo-119598.hostingersite.com/" target="_blank" rel="noopener" class="font-bold underline underline-offset-4">Visit the site</a>
-      </article>
+        <a class="visit" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-      <article class="group">
-        <a href="https://lime-eel-176003.hostingersite.com/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Stella Construction">
-          <img class="shot" alt="Stella Construction website"
-               src="assets/work/stella.jpg">
-        </a>
-        <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Stella Construction LLC</h3>
-        <p class="text-sm opacity-50 mb-3">Licensed trade business</p>
-        <p class="opacity-70 leading-relaxed mb-4">
-          Services laid out plainly, credentials where a cautious buyer looks for them, and a quote form
-          that does not ask for more than it needs. Built for somebody deciding whether to trust a stranger
-          with their money.
+    <!-- 6 -->
+    <article class="row flip">
+      <a class="shotlink" href="https://pumptimeai.com/" target="_blank" rel="noopener">
+        <img src="assets/work/pumptimeai.jpg" alt="Pump Time AI website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">pumptimeai.com</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Software product</p>
+        <h3 class="h3">Pump Time AI</h3>
+        <p class="body">
+          A phone receptionist for concrete pumping companies, sold to people who are on a site all
+          day and miss the call that would have paid for the week. The page leads on that miss, then
+          shows the thing working before it asks for anything.
         </p>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
+          <span class="chip">Product page</span><span class="chip">Live demo</span><span class="chip">Pricing</span>
+        </div>
+        <a class="visit" href="https://pumptimeai.com/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="row">
+      <a class="shotlink" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">
+        <img src="assets/work/stella.jpg" alt="Stella Construction LLC website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">stellaconstructionllc.org</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Licensed trade business</p>
+        <h3 class="h3">Stella Construction LLC</h3>
+        <p class="body">
+          Services laid out plainly, credentials where a cautious buyer looks for them, and a quote
+          form that does not ask for more than it needs. Built for somebody deciding whether to trust
+          a stranger with their money.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
           <span class="chip">Services page</span><span class="chip">Trust signals</span><span class="chip">Quote form</span>
         </div>
-        <a href="https://lime-eel-176003.hostingersite.com/" target="_blank" rel="noopener" class="font-bold underline underline-offset-4">Visit the site</a>
-      </article>
+        <a class="visit" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-      <article class="group">
-        <a href="https://magictracker.cc/" target="_blank" rel="noopener" class="shotwrap block overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800" data-label="Magic Tracker">
-          <img class="shot" alt="Magic Tracker"
-               src="assets/work/magictracker.jpg">
-        </a>
-        <h3 class="text-2xl font-extrabold tracking-tight mt-5 mb-2">Magic Tracker</h3>
-        <p class="text-sm opacity-50 mb-3">Flynn Foundation</p>
-        <p class="opacity-70 leading-relaxed mb-4">
-          A web app rather than a brochure site. Field agents,
-          merchants and an admin view, each seeing only what they need, with campaigns tracked across
-          all three.
+    <!-- 8 -->
+    <article class="row flip">
+      <a class="shotlink" href="https://magictracker.cc/" target="_blank" rel="noopener">
+        <img src="assets/work/magictracker.jpg" alt="Magic Tracker website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">magictracker.cc</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">Web app</p>
+        <h3 class="h3">Magic Tracker</h3>
+        <p class="body">
+          An affiliate platform rather than a brochure site. Merchants, affiliates and an admin view,
+          each seeing only what they need, with campaigns and payouts tracked across all of them.
+          Pricing, plans and a merchant login, so the site is the product's front door.
         </p>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
           <span class="chip">Web app</span><span class="chip">Dashboards</span><span class="chip">Multi-role</span>
         </div>
-        <a href="https://magictracker.cc/" target="_blank" rel="noopener" class="font-bold underline underline-offset-4">Visit the site</a>
-      </article>
+        <a class="visit" href="https://magictracker.cc/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-    </div>
+    <!-- 9 -->
+    <article class="row">
+      <a class="shotlink" href="https://decentcrowd.cc/" target="_blank" rel="noopener">
+        <img src="assets/work/decentcrowd.jpg" alt="DecentCrowd website" loading="lazy" width="1280" height="800">
+        <div class="shotbar"><span class="dom">decentcrowd.cc</span><span class="go">Open ↗</span></div>
+      </a>
+      <div>
+        <p class="kind">My own project</p>
+        <h3 class="h3">DecentCrowd</h3>
+        <p class="body">
+          Not a client job. I built this one for myself, to see whether I could make something
+          genuinely technical feel safe to a first time user. It is crowdfunding where the money is
+          released in steps rather than handed over at once, and the page explains that protection
+          before it explains any of the technology behind it.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px;">
+          <span class="chip">Personal project</span><span class="chip">Two audiences</span><span class="chip">Plain language</span>
+        </div>
+        <a class="visit" href="https://decentcrowd.cc/" target="_blank" rel="noopener">Visit the live site</a>
+      </div>
+    </article>
 
-    <p class="text-sm opacity-50 mt-8 max-w-2xl leading-relaxed">
-      Three of these sit on their Hostinger addresses while each owner sets up their own hosting.
-      They are the finished sites, not previews.
+  </div>
+</section>
+
+<!-- ============ WHAT THEY SAID ============ -->
+<section id="said">
+  <div class="wrap pad">
+    <p class="label" style="margin:0 0 14px;">What people said</p>
+    <h2 class="h2" style="max-width:700px;">They posted the rebuild to their community and asked people to be honest.</h2>
+    <p class="body" style="max-width:620px;margin:16px 0 40px;">
+      When the new Block Cycle site went up, both versions were put side by side in front of their
+      members with a poll attached. These are some of the replies.
     </p>
-  </section>
 
-  <section id="how" class="py-16 md:py-24 px-6 border-t border-zinc-100 dark:border-zinc-900">
-    <div class="max-w-7xl mx-auto">
-      <p class="section-label opacity-50 mb-3">How it works</p>
-      <h2 class="section-heading mb-10">You see it before you decide anything.</h2>
-      <div class="grid md:grid-cols-4 gap-8">
-        <div><p class="text-5xl font-extrabold tracking-tight opacity-20 mb-3">01</p>
-          <h3 class="font-bold mb-2">I build it first</h3>
-          <p class="opacity-70 text-sm leading-relaxed">I look at what you build and who hires you, then build the site I think you should have. Nothing is agreed at this point.</p></div>
-        <div><p class="text-5xl font-extrabold tracking-tight opacity-20 mb-3">02</p>
-          <h3 class="font-bold mb-2">You look at it</h3>
-          <p class="opacity-70 text-sm leading-relaxed">If you do not like it, that is the end of it and it cost you nothing. Plenty of people stop here.</p></div>
-        <div><p class="text-5xl font-extrabold tracking-tight opacity-20 mb-3">03</p>
-          <h3 class="font-bold mb-2">Fifteen minutes</h3>
-          <p class="opacity-70 text-sm leading-relaxed">If you want it, we talk about what it takes to make it live, what it costs, and when.</p></div>
-        <div><p class="text-5xl font-extrabold tracking-tight opacity-20 mb-3">04</p>
-          <h3 class="font-bold mb-2">It goes live</h3>
-          <p class="opacity-70 text-sm leading-relaxed">On your own domain and hosting, which you own, and I show you how to change it yourself.</p></div>
+    <div class="thread" style="max-width:720px;">
+
+      <div class="cmt">
+        <div class="av" style="background:#fbbf24;">C</div>
+        <div class="bub"><p class="who">Chris P.</p><p class="said">Sanni, you're hired</p></div>
+      </div>
+      <div class="cmt indent">
+        <div class="av" style="background:#fbbf24;">C</div>
+        <div class="bub"><p class="who">Chris P.</p><p class="said">When can you start on the WealthWave site?</p></div>
+      </div>
+
+      <div class="cmt" style="margin-top:14px;">
+        <div class="av" style="background:#60a5fa;">J</div>
+        <div class="bub"><p class="who">Jessie F.</p><p class="said">Nice flow, easy to follow and up to date!</p></div>
+      </div>
+
+      <div class="cmt">
+        <div class="av" style="background:#f472b6;">S</div>
+        <div class="bub">
+          <p class="who">Shanreca C.</p>
+          <p class="said">Awesome new look! Overall the new page looks more professional and clean.</p>
+        </div>
+      </div>
+
+      <div class="cmt">
+        <div class="av" style="background:#34d399;">C</div>
+        <div class="bub"><p class="who">Courtney B.</p><p class="said">It's so clean cut now 🔥🔥🔥🔥🔥</p></div>
+      </div>
+
+      <div class="cmt">
+        <div class="av" style="background:#a78bfa;">J</div>
+        <div class="bub"><p class="who">Jason C.</p><p class="said">Good look, I like it.</p></div>
+      </div>
+
+      <div class="cmt">
+        <div class="av" style="background:#fb923c;">P</div>
+        <div class="bub"><p class="who">Pacha T.</p><p class="said">Looks smooth to me!!!</p></div>
+      </div>
+
+      <div class="cmt">
+        <div class="av" style="background:#38bdf8;">J</div>
+        <div class="bub"><p class="who">Joshua S.</p><p class="said">I like the design. Everything works as it should.</p></div>
+      </div>
+
+    </div>
+
+    <p style="font-size:12.5px;color:var(--faint);margin:28px 0 0;max-width:620px;line-height:1.6;">
+      Replies from the Block Cycle community thread, January 2025. Surnames shortened.
+    </p>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section id="how">
+  <div class="wrap pad">
+    <p class="label" style="margin:0 0 14px;">How it works</p>
+    <h2 class="h2" style="margin-bottom:46px;">You see it before you decide anything.</h2>
+    <div class="grid4">
+      <div>
+        <p class="stepno">01</p>
+        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">I build it first</h3>
+        <p class="body" style="font-size:14.5px;">I look at what you build and who hires you, then build the site I think you should have. Nothing is agreed at this point.</p>
+      </div>
+      <div>
+        <p class="stepno">02</p>
+        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">You look at it</h3>
+        <p class="body" style="font-size:14.5px;">If you do not like it, that is the end of it and it cost you nothing. Plenty of people stop here.</p>
+      </div>
+      <div>
+        <p class="stepno">03</p>
+        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">Fifteen minutes</h3>
+        <p class="body" style="font-size:14.5px;">If you want it, we talk about what it takes to make it live, what it costs, and when.</p>
+      </div>
+      <div>
+        <p class="stepno">04</p>
+        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">It goes live</h3>
+        <p class="body" style="font-size:14.5px;">On your own domain and hosting, which you own, and I show you how to change it yourself.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="py-20 md:py-28 px-6 border-t border-zinc-100 dark:border-zinc-900">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="section-heading mb-5">Want to see what yours would look like?</h2>
-      <p class="opacity-70 mb-8 leading-relaxed">Fifteen minutes, and I will have already built something before we speak.</p>
-      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener"
-         class="inline-block bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-bold px-8 py-4 rounded-full">Book a 15 minute call</a>
-    </div>
-  </section>
+<!-- ============ CTA ============ -->
+<section>
+  <div class="narrow pad" style="text-align:center;">
+    <h2 class="h2">Want to see what yours would look like?</h2>
+    <p class="lead" style="margin:20px auto 34px;max-width:480px;">
+      Fifteen minutes, and most of the time I will have already built something before we speak.
+    </p>
+    <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn" style="padding:16px 32px;font-size:16px;">Book a 15 minute call</a>
+  </div>
+</section>
 
-  <footer class="border-t border-zinc-100 dark:border-zinc-900 py-10 px-6">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm opacity-60">
-      <span>Sanni Sanni — I build websites</span>
-      <div class="flex gap-6">
-        <a href="https://www.instagram.com/iamsannisanni/" target="_blank" rel="noopener" class="hover:opacity-100">Instagram</a>
-        <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="hover:opacity-100">Book a call</a>
-      </div>
+<footer style="border-top:1px solid var(--line-soft);padding:36px 0;">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:13.5px;color:var(--faint);">
+    <span>Sanni Sanni — I build websites</span>
+    <div style="display:flex;gap:22px;">
+      <a href="https://www.instagram.com/iamsannisanni/" target="_blank" rel="noopener" style="text-decoration:none;">Instagram</a>
+      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" style="text-decoration:none;">Book a call</a>
     </div>
-  </footer>
+  </div>
+</footer>
+
+<script>
+  // The three section links are hidden on a narrow screen so the booking
+  // button never gets pushed off the bar. Done here rather than with a media
+  // query because they must stay hidden in the markup for small screens too.
+  if (window.matchMedia('(min-width: 680px)').matches) {
+    document.querySelectorAll('[data-sm]').forEach(function (el) { el.style.display = 'inline'; });
+  }
+</script>
 
 </body>
 </html>
