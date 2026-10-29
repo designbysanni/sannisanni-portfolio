@@ -117,8 +117,11 @@
     }
     /* Mixing the two shapes is what gives the column its rhythm. A page of
        nine identical rectangles reads as a contact sheet. */
-    .card .shot { aspect-ratio: 16 / 10; }
-    .card.tall .shot { aspect-ratio: 4 / 5; }
+    .card .shot { aspect-ratio: 16 / 9; }
+    /* Only a phone gets the tall frame, because only a phone is served the
+       phone screenshot. On a desktop every card is a desktop shot, which also
+       means every row is the same height and no card sits in a hole. */
+    @media (max-width: 899px) { .card.tall .shot { aspect-ratio: 4 / 5; } }
 
     /* ---- the one project that was reviewed in public ---- */
     .thread { display: grid; gap: 11px; max-width: 620px; }
@@ -172,7 +175,7 @@
     <a class="shot feature" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
       <picture>
         <source media="(max-width: 899px)" srcset="assets/work/buildher-m.jpg" width="520" height="1125">
-        <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" width="1760" height="1100" fetchpriority="high">
+        <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" width="1760" height="990" fetchpriority="high">
       </picture>
     </a>
     <div class="cap">
@@ -192,7 +195,7 @@
 
       <article class="card">
         <a class="shot" href="https://olivaritennis.com/" target="_blank" rel="noopener">
-          <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" width="1760" height="1100">
+          <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" width="1100" height="619">
         </a>
         <div class="cap">
           <span class="nm">Olivari Tennis</span><span class="dash">&#8212;</span>
@@ -203,7 +206,7 @@
 
       <article class="card">
         <a class="shot" href="https://blockcycle.org/" target="_blank" rel="noopener">
-          <img src="assets/work/blockcycle.jpg" alt="Block Cycle website" width="1100" height="687" loading="lazy">
+          <img src="assets/work/blockcycle.jpg" alt="Block Cycle website" width="1100" height="619" loading="lazy">
         </a>
         <div class="cap">
           <span class="nm">Block Cycle</span><span class="dash">&#8212;</span>
@@ -214,7 +217,10 @@
 
       <article class="card tall">
         <a class="shot" href="https://pumptimeai.com/" target="_blank" rel="noopener">
-          <img src="assets/work/pumptimeai-m.jpg" alt="Pump Time AI on a phone" width="520" height="1125" loading="lazy">
+          <picture>
+            <source media="(max-width: 899px)" srcset="assets/work/pumptimeai-m.jpg" width="520" height="1125">
+            <img src="assets/work/pumptimeai.jpg" alt="Pump Time AI website" width="1100" height="619" loading="lazy">
+          </picture>
         </a>
         <div class="cap">
           <span class="nm">Pump Time AI</span><span class="dash">&#8212;</span>
@@ -225,7 +231,10 @@
 
       <article class="card tall">
         <a class="shot" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">
-          <img src="assets/work/stella-m.jpg" alt="Stella Construction on a phone" width="520" height="1125" loading="lazy">
+          <picture>
+            <source media="(max-width: 899px)" srcset="assets/work/stella-m.jpg" width="520" height="1125">
+            <img src="assets/work/stella.jpg" alt="Stella Construction website" width="1100" height="619" loading="lazy">
+          </picture>
         </a>
         <div class="cap">
           <span class="nm">Stella Construction LLC</span><span class="dash">&#8212;</span>
@@ -236,7 +245,7 @@
 
       <article class="card">
         <a class="shot" href="https://airikart.com/" target="_blank" rel="noopener">
-          <img src="assets/work/airikart.jpg" alt="Airikart website" width="1760" height="1100" loading="lazy">
+          <img src="assets/work/airikart.jpg" alt="Airikart website" width="1100" height="619" loading="lazy">
         </a>
         <div class="cap">
           <span class="nm">Airikart</span><span class="dash">&#8212;</span>
@@ -247,7 +256,7 @@
 
       <article class="card">
         <a class="shot" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">
-          <img src="assets/work/scalesprime.jpg" alt="Scales Prime Construction website" width="1760" height="1100" loading="lazy">
+          <img src="assets/work/scalesprime.jpg" alt="Scales Prime Construction website" width="1100" height="619" loading="lazy">
         </a>
         <div class="cap">
           <span class="nm">Scales Prime Construction</span><span class="dash">&#8212;</span>
@@ -258,7 +267,10 @@
 
       <article class="card tall">
         <a class="shot" href="https://magictracker.cc/" target="_blank" rel="noopener">
-          <img src="assets/work/magictracker-m.jpg" alt="Magic Tracker on a phone" width="520" height="1125" loading="lazy">
+          <picture>
+            <source media="(max-width: 899px)" srcset="assets/work/magictracker-m.jpg" width="520" height="1125">
+            <img src="assets/work/magictracker.jpg" alt="Magic Tracker website" width="1100" height="619" loading="lazy">
+          </picture>
         </a>
         <div class="cap">
           <span class="nm">Magic Tracker</span><span class="dash">&#8212;</span>
@@ -269,7 +281,10 @@
 
       <article class="card tall">
         <a class="shot" href="https://decentcrowd.cc/" target="_blank" rel="noopener">
-          <img src="assets/work/decentcrowd-m.jpg" alt="DecentCrowd on a phone" width="520" height="1125" loading="lazy">
+          <picture>
+            <source media="(max-width: 899px)" srcset="assets/work/decentcrowd-m.jpg" width="520" height="1125">
+            <img src="assets/work/decentcrowd.jpg" alt="DecentCrowd website" width="1100" height="619" loading="lazy">
+          </picture>
         </a>
         <div class="cap">
           <span class="nm">DecentCrowd</span><span class="dash">&#8212;</span>
