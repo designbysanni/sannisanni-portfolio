@@ -70,10 +70,9 @@
        cut is the thing that makes someone scroll.
        ============================================================ */
     .hero { padding: 54px 0 0; }
-    @media (min-width: 900px) { .hero { padding: 72px 0 0; } }
+    @media (min-width: 900px) { .hero { padding: 60px 0 0; } }
     .hero .h1 { max-width: 15ch; }
     .hero .lead { max-width: 46ch; margin: 20px 0 0; }
-    .hero .btn { margin-top: 26px; }
 
     /* ---- a project picture, which is always a link to the live site ---- */
     .shot {
@@ -86,8 +85,14 @@
     .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .shot:hover { border-color: #4a4a52; }
 
-    .feature { margin-top: 36px; aspect-ratio: 9 / 15; border-radius: 16px; }
-    @media (min-width: 900px) { .feature { margin-top: 48px; aspect-ratio: 16 / 10; } }
+    .feature { margin-top: 30px; aspect-ratio: 9 / 15; border-radius: 16px; }
+    @media (min-width: 900px) {
+      /* A shorter frame than the shot, so there is overflow to slide. Pushing
+         the shot to the bottom of it puts the client's headline where the fold
+         lands instead of their nav bar, and nothing readable gets halved. */
+      .feature { margin-top: 36px; aspect-ratio: 20 / 9; }
+      .feature img { object-position: center bottom; }
+    }
 
     .cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 9px; margin: 16px 0 0; }
     .cap .nm { font-size: 16px; font-weight: 700; }
@@ -163,18 +168,17 @@
       Most of the time I build yours first and send it over before anything is agreed, so you can
       look at the thing instead of reading about it.
     </p>
-    <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a 15 minute call</a>
 
-    <a class="shot feature" href="https://olivaritennis.com/" target="_blank" rel="noopener">
+    <a class="shot feature" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
       <picture>
-        <source media="(max-width: 899px)" srcset="assets/work/olivaritennis-m.jpg" width="520" height="1125">
-        <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" width="1760" height="1100" fetchpriority="high">
+        <source media="(max-width: 899px)" srcset="assets/work/buildher-m.jpg" width="520" height="1125">
+        <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" width="1760" height="1100" fetchpriority="high">
       </picture>
     </a>
     <div class="cap">
-      <span class="nm">Olivari Tennis</span><span class="dash">—</span>
-      <span class="ln">Coaching programme built to turn a visitor into a booked call</span>
-      <a class="go" href="https://olivaritennis.com/" target="_blank" rel="noopener">olivaritennis.com ↗</a>
+      <span class="nm">BuildHer Construction</span><span class="dash">&#8212;</span>
+      <span class="ln">Chicago property developer, ten years of work finally on the page</span>
+      <a class="go" href="https://buildherconstruction.com/" target="_blank" rel="noopener">buildherconstruction.com &#8599;</a>
     </div>
   </div>
 </section>
@@ -187,6 +191,17 @@
     <div class="grid">
 
       <article class="card">
+        <a class="shot" href="https://olivaritennis.com/" target="_blank" rel="noopener">
+          <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" width="1760" height="1100">
+        </a>
+        <div class="cap">
+          <span class="nm">Olivari Tennis</span><span class="dash">&#8212;</span>
+          <span class="ln">Coaching programme built to turn a visitor into a booked call</span>
+          <a class="go" href="https://olivaritennis.com/" target="_blank" rel="noopener">olivaritennis.com &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card">
         <a class="shot" href="https://blockcycle.org/" target="_blank" rel="noopener">
           <img src="assets/work/blockcycle.jpg" alt="Block Cycle website" width="1100" height="687" loading="lazy">
         </a>
@@ -194,17 +209,6 @@
           <span class="nm">Block Cycle</span><span class="dash">&#8212;</span>
           <span class="ln">Crypto education platform, rebuilt around one free workshop</span>
           <a class="go" href="https://blockcycle.org/" target="_blank" rel="noopener">blockcycle.org &#8599;</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a class="shot" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
-          <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" width="1760" height="1100" loading="lazy">
-        </a>
-        <div class="cap">
-          <span class="nm">BuildHer Construction</span><span class="dash">&#8212;</span>
-          <span class="ln">Chicago property developer, ten years of work finally on the page</span>
-          <a class="go" href="https://buildherconstruction.com/" target="_blank" rel="noopener">buildherconstruction.com &#8599;</a>
         </div>
       </article>
 
