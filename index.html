@@ -139,7 +139,7 @@
     .who { font-size: 13px; font-weight: 700; color: var(--muted); margin: 0; }
 
     .statbar { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 24px 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding-block: 24px; }
     .statn { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; margin: 0; }
     .statl { font-size: 11.5px; color: var(--faint); margin: 5px 0 0; }
 
@@ -148,8 +148,8 @@
     @media (min-width: 1000px) { .grid4 { grid-template-columns: repeat(4, 1fr); } }
     .stepno { font-size: 42px; font-weight: 800; letter-spacing: -.03em; color: #3a3a3f; margin: 0 0 8px; line-height: 1; }
 
-    .pad { padding: 68px 0; }
-    @media (min-width: 900px) { .pad { padding: 94px 0; } }
+    .pad { padding-block: 68px; }
+    @media (min-width: 900px) { .pad { padding-block: 94px; } }
     .edge { border-top: 1px solid var(--line-soft); }
     .quiet { color: var(--faint); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
     .quiet:hover { color: var(--muted); }
@@ -170,8 +170,7 @@
 <!-- ============ HERO, WITH THE FIRST PROJECT INSIDE IT ============ -->
 <section id="top" class="hero">
   <div class="wrap">
-    <p class="label" style="margin:0 0 18px;">Working with businesses across the US</p>
-    <h1 class="h1">I build websites. Usually before you ask.</h1>
+        <h1 class="h1">I build websites. Usually before you ask.</h1>
     <p class="lead">
       Most of the time I build yours first and send it over before anything is agreed, so you can
       look at the thing instead of reading about it.
