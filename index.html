@@ -26,41 +26,36 @@
       --text: #fafafa;
       --muted: #a1a1aa;
       --faint: #71717a;
-      --accent: #ffffff;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg); color: var(--text);
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
     a { color: inherit; }
     img { max-width: 100%; display: block; }
 
     .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-    .narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 720px; margin: 0 auto; padding: 0 20px; }
 
-    .label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--faint); }
-    .h1 { font-size: clamp(2.5rem, 7.5vw, 5.5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 800; margin: 0; }
-    .h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0; }
-    .lead { font-size: clamp(1.02rem, 2vw, 1.2rem); line-height: 1.65; color: var(--muted); }
-    .body { font-size: 15.5px; line-height: 1.7; color: var(--muted); }
+    .label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .22em; color: var(--faint); }
+    .h1 { font-size: clamp(2.15rem, 6vw, 4.4rem); line-height: .98; letter-spacing: -.04em; font-weight: 800; margin: 0; }
+    .h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); line-height: 1.06; letter-spacing: -.03em; font-weight: 800; margin: 0; }
+    .lead { font-size: clamp(1rem, 1.7vw, 1.14rem); line-height: 1.6; color: var(--muted); }
+    .body { font-size: 15px; line-height: 1.68; color: var(--muted); }
 
     .btn {
       display: inline-block; font-weight: 700; font-size: 15px; text-decoration: none;
-      padding: 14px 26px; border-radius: 999px; background: var(--accent); color: #1a1a1a;
+      padding: 14px 26px; border-radius: 999px; background: #fafafa; color: #1a1a1a;
       transition: transform .15s ease, opacity .15s ease;
     }
     .btn:hover { transform: translateY(-1px); opacity: .9; }
-    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-    .btn-ghost:hover { border-color: var(--faint); }
 
     nav.bar {
       position: sticky; top: 0; z-index: 90;
-      background: rgba(26,26,26,.86); backdrop-filter: blur(12px);
+      background: rgba(26,26,26,.88); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line-soft);
     }
     .bar-in { height: 58px; display: flex; align-items: center; justify-content: space-between; }
@@ -68,135 +63,83 @@
     .navlink:hover { color: var(--text); }
     .bar .btn { padding: 9px 18px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
 
-    .cred {
-      display: inline-flex; align-items: center; gap: 10px; margin-top: 26px;
-      padding: 9px 16px 9px 13px; border: 1px solid var(--line); border-radius: 999px;
-      font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none;
-      transition: border-color .2s ease, color .2s ease;
-    }
-    .cred:hover { border-color: var(--faint); color: var(--text); }
-    .cred .dot { width: 7px; height: 7px; border-radius: 999px; background: #34d399; flex: 0 0 7px; }
-    .cred .credgo { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
-
     /* ============================================================
-       THE GALLERY
-       The screenshots are the argument, so nothing is allowed to sit
-       beside them and explain. Each scene is its own arrangement
-       rather than another row of the same grid, which is what keeps
-       a long scroll from reading like a template.
+       HERO
+       The text block is deliberately short so the first design starts
+       inside the first screen and is cut off by the bottom of it. The
+       cut is the thing that makes someone scroll.
        ============================================================ */
-    .scene { position: relative; margin: 0 auto; }
-    .gap-s { height: 46px; } .gap-m { height: 86px; } .gap-l { height: 130px; }
-    @media (max-width: 760px) { .gap-s { height: 30px; } .gap-m { height: 52px; } .gap-l { height: 74px; } }
+    .hero { padding: 54px 0 0; }
+    @media (min-width: 900px) { .hero { padding: 72px 0 0; } }
+    .hero .h1 { max-width: 15ch; }
+    .hero .lead { max-width: 46ch; margin: 20px 0 0; }
+    .hero .btn { margin-top: 26px; }
 
-    /* Runs the full width of the window whatever container it sits in. */
-    .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
-
-    .shot { display: block; position: relative; overflow: hidden; background: #242428; text-decoration: none; }
-    /* picture is inline by default, which would break the height:100% chain
-       between the aspect-ratio box and the image inside it. */
+    /* ---- a project picture, which is always a link to the live site ---- */
+    .shot {
+      display: block; position: relative; overflow: hidden; text-decoration: none;
+      background: #242428; border-radius: 14px; border: 1px solid var(--line);
+    }
+    /* picture is inline by default, which breaks the height chain between the
+       aspect-ratio box and the image inside it. */
     .shot picture { display: block; width: 100%; height: 100%; }
     .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    .shot.framed { border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
-    .shot.wide { aspect-ratio: 16 / 9; }
-    @media (max-width: 760px) { .shot.wide { aspect-ratio: 4 / 5; } }
-    /* Keeps the framed shots inside a container on their desktop crop even on
-       a phone, where only the full bleed scenes swap to the phone capture. */
-    @media (max-width: 760px) { .shot.framed { aspect-ratio: 16 / 10; } }
+    .shot:hover { border-color: #4a4a52; }
 
-    /* The domain is the only label. It doubles as the hint that the
-       whole picture is a link. */
-    .tag {
-      position: absolute; left: 14px; bottom: 14px; z-index: 4;
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 7px 13px; border-radius: 999px;
-      background: rgba(18,18,20,.72); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,.14);
-      font-size: 11.5px; font-weight: 700; letter-spacing: .02em; color: #e4e4e7;
-      transition: background .2s ease, color .2s ease;
+    .feature { margin-top: 36px; aspect-ratio: 9 / 15; border-radius: 16px; }
+    @media (min-width: 900px) { .feature { margin-top: 48px; aspect-ratio: 16 / 10; } }
+
+    .cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 9px; margin: 16px 0 0; }
+    .cap .nm { font-size: 16px; font-weight: 700; }
+    .cap .dash { color: var(--faint); }
+    .cap .ln { font-size: 15px; color: var(--muted); line-height: 1.5; }
+    .cap .go {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--faint); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px;
     }
-    .tag .arw { opacity: .6; font-weight: 800; }
-    .shot:hover .tag { background: #fafafa; color: #1a1a1a; border-color: #fafafa; }
-    .shot:hover .tag .arw { opacity: 1; }
-    @media (max-width: 760px) { .tag { left: 10px; bottom: 10px; padding: 6px 11px; font-size: 10.5px; } }
+    .cap .go:hover { color: var(--text); border-color: var(--text); }
 
-    /* ---- phones ---- */
-    .phone {
-      position: relative; border-radius: 30px; overflow: hidden;
-      border: 7px solid #0e0e10; background: #0e0e10;
-      box-shadow: 0 34px 70px rgba(0,0,0,.6); text-decoration: none; display: block;
-    }
-    .phone img { width: 100%; height: auto; display: block; border-radius: 23px; }
-    /* height:auto again: without it the tag's height attribute wins over the
-       intrinsic ratio and every phone renders stretched to 1125px tall. */
-    .phone .tag { left: 50%; transform: translateX(-50%); bottom: 16px; }
-
-
-    /* ---- scene: a wide shot pushed off one edge with a phone on it ---- */
-    .cluster { display: grid; align-items: center; }
+    /* ============================================================
+       THE GRID
+       One column on a phone. Two on a desktop with the right hand
+       column dropped, so it reads as a laid out page rather than a
+       table of thumbnails.
+       ============================================================ */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 52px; }
     @media (min-width: 900px) {
-      .cluster { grid-template-columns: 1fr 196px; gap: 0; }
-      .cluster .big { grid-column: 1; }
-      /* The width has to be set explicitly and the item kept from stretching.
-         A negative margin on a stretched grid item grows it instead of moving
-         it, which made the phone taller than the site it was leaning on. */
-      .cluster .ph { grid-column: 2; width: 196px; justify-self: start; margin-left: -92px; margin-top: 64px; z-index: 10; }
-      /* Mirroring has to flip the track sizes too, not just the placement, or
-         the wide shot lands in the 196px phone column. */
-      .cluster.right { grid-template-columns: 196px 1fr; }
-      .cluster.right .big { grid-column: 2; }
-      .cluster.right .ph { grid-column: 1; justify-self: end; margin-left: 0; margin-right: -92px; margin-top: -64px; }
-      /* The phone leans on the bottom left here, which is where the pill lives. */
-      .cluster.right .big .tag { left: auto; right: 14px; }
+      .grid { grid-template-columns: 1fr 1fr; column-gap: 44px; row-gap: 26px; align-items: start; }
+      .grid > :nth-child(even) { margin-top: 96px; }
     }
-    @media (max-width: 899px) {
-      .cluster { grid-template-columns: 1fr; }
-      .cluster .ph { width: 54%; margin: -70px 0 0 auto; margin-right: -4%; z-index: 10; }
-      .cluster.right .ph { margin-left: -4%; margin-right: auto; }
-    }
+    /* Mixing the two shapes is what gives the column its rhythm. A page of
+       nine identical rectangles reads as a contact sheet. */
+    .card .shot { aspect-ratio: 16 / 10; }
+    .card.tall .shot { aspect-ratio: 4 / 5; }
 
-    /* ---- scene: a fanned row of phones ----
-       Phones only on a phone. On a wide screen a row of three tall shots
-       reads as a stack of thumbnails and shrinks the work; the desktop
-       scroll stays on the full width shots, with a single phone leaning on
-       a wide one where it adds something. */
-    .fan { display: none; justify-content: center; align-items: flex-start; }
-    @media (max-width: 899px) {
-      .fan { display: flex; }
-      .fan .phone { flex: 0 0 auto; width: 46%; border-width: 5px; border-radius: 24px; }
-      .fan .phone img { border-radius: 19px; }
-      .fan .phone:nth-child(1) { transform: rotate(-3deg); margin-top: 44px; margin-left: -7%; }
-      .fan .phone:nth-child(2) { margin: 0 -9%; z-index: 6; }
-      .fan .phone:nth-child(3) { transform: rotate(3deg); margin-top: 44px; margin-right: -7%; }
-    }
-    /* The spacer above a hidden fan would otherwise leave a dead gap. */
-    @media (min-width: 900px) { .fan-gap { display: none; } }
-
-    /* ---- scene: two wide shots at different heights ---- */
-    .pair { display: grid; gap: 26px; align-items: start; }
-    @media (min-width: 900px) {
-      .pair { grid-template-columns: 1.08fr 0.92fr; gap: 0; }
-      .pair > :nth-child(1) { margin-top: 90px; margin-right: -50px; z-index: 2; }
-      .pair > :nth-child(2) { z-index: 3; }
-    }
-    @media (max-width: 899px) {
-      .pair > :nth-child(1) { width: 88%; }
-      .pair > :nth-child(2) { width: 88%; margin-left: auto; margin-top: -10px; }
-    }
-
-    .grid4 { display: grid; gap: 30px; }
-    @media (min-width: 720px) { .grid4 { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1000px) { .grid4 { grid-template-columns: repeat(4, 1fr); } }
-    .stepno { font-size: 46px; font-weight: 800; letter-spacing: -.03em; color: #3a3a3f; margin: 0 0 8px; line-height: 1; }
+    /* ---- the one project that was reviewed in public ---- */
+    .thread { display: grid; gap: 11px; max-width: 620px; }
+    .cmt { display: flex; gap: 11px; align-items: flex-start; }
+    .cmt.indent { padding-left: 32px; }
+    .av { width: 32px; height: 32px; border-radius: 999px; flex: 0 0 32px;
+          display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: #1a1a1a; }
+    .bub { background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; padding: 11px 15px; min-width: 0; }
+    .who { font-size: 13px; font-weight: 700; margin: 0 0 3px; }
+    .said { font-size: 14.5px; line-height: 1.5; color: #e4e4e7; margin: 0; }
 
     .statbar { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 26px 0; }
-    .statn { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.03em; margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 24px 0; }
+    .statn { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; margin: 0; }
     .statl { font-size: 11.5px; color: var(--faint); margin: 5px 0 0; }
 
-    .pad { padding: 72px 0; }
-    @media (min-width: 900px) { .pad { padding: 100px 0; } }
+    .grid4 { display: grid; gap: 28px; }
+    @media (min-width: 720px) { .grid4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .grid4 { grid-template-columns: repeat(4, 1fr); } }
+    .stepno { font-size: 42px; font-weight: 800; letter-spacing: -.03em; color: #3a3a3f; margin: 0 0 8px; line-height: 1; }
+
+    .pad { padding: 68px 0; }
+    @media (min-width: 900px) { .pad { padding: 94px 0; } }
     .edge { border-top: 1px solid var(--line-soft); }
+    .quiet { color: var(--faint); text-decoration: none; border-bottom: 1px solid var(--line-soft); }
+    .quiet:hover { color: var(--muted); }
   </style>
 </head>
 <body>
@@ -206,31 +149,174 @@
     <a href="#top" style="font-weight:800;letter-spacing:-.02em;text-decoration:none;">Sanni Sanni</a>
     <div style="display:flex;align-items:center;gap:22px;">
       <a href="#work" class="navlink" style="display:none;" data-sm>Work</a>
-      <a href="#how" class="navlink" style="display:none;" data-sm>How it works</a>
       <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a call</a>
     </div>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section id="top">
-  <div class="wrap" style="padding-top:84px;padding-bottom:52px;">
-    <p class="label" style="margin:0 0 20px;">Working with businesses across the US</p>
-    <h1 class="h1">I build websites.<br>Usually before you ask.</h1>
-    <p class="lead" style="max-width:620px;margin:26px 0 0;">
+<!-- ============ HERO, WITH THE FIRST PROJECT INSIDE IT ============ -->
+<section id="top" class="hero">
+  <div class="wrap">
+    <p class="label" style="margin:0 0 18px;">Working with businesses across the US</p>
+    <h1 class="h1">I build websites. Usually before you ask.</h1>
+    <p class="lead">
       Most of the time I build yours first and send it over before anything is agreed, so you can
       look at the thing instead of reading about it.
     </p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;">
-      <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a 15 minute call</a>
-      <a href="#work" class="btn btn-ghost">See the work</a>
-    </div>
-    <a class="cred" href="https://www.coursera.org/account/accomplishments/professional-cert/3ISGYFGAILQ6"
-       target="_blank" rel="noopener">
-      <span class="dot"></span>
-      Google certified UX designer
-      <span class="credgo">Verify ↗</span>
+    <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn">Book a 15 minute call</a>
+
+    <a class="shot feature" href="https://olivaritennis.com/" target="_blank" rel="noopener">
+      <picture>
+        <source media="(max-width: 899px)" srcset="assets/work/olivaritennis-m.jpg" width="520" height="1125">
+        <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis website" width="1760" height="1100" fetchpriority="high">
+      </picture>
     </a>
+    <div class="cap">
+      <span class="nm">Olivari Tennis</span><span class="dash">—</span>
+      <span class="ln">Coaching programme built to turn a visitor into a booked call</span>
+      <a class="go" href="https://olivaritennis.com/" target="_blank" rel="noopener">olivaritennis.com ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE REST OF THE WORK ============ -->
+<section id="work" style="padding-top:76px;">
+  <div class="wrap">
+    <p class="label" style="margin:0 0 30px;">Eight more, all live. Tap any one and it opens.</p>
+
+    <div class="grid">
+
+      <article class="card">
+        <a class="shot" href="https://blockcycle.org/" target="_blank" rel="noopener">
+          <img src="assets/work/blockcycle.jpg" alt="Block Cycle website" width="1100" height="687" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Block Cycle</span><span class="dash">&#8212;</span>
+          <span class="ln">Crypto education platform, rebuilt around one free workshop</span>
+          <a class="go" href="https://blockcycle.org/" target="_blank" rel="noopener">blockcycle.org &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
+          <img src="assets/work/buildher.jpg" alt="BuildHer Construction website" width="1760" height="1100" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">BuildHer Construction</span><span class="dash">&#8212;</span>
+          <span class="ln">Chicago property developer, ten years of work finally on the page</span>
+          <a class="go" href="https://buildherconstruction.com/" target="_blank" rel="noopener">buildherconstruction.com &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card tall">
+        <a class="shot" href="https://pumptimeai.com/" target="_blank" rel="noopener">
+          <img src="assets/work/pumptimeai-m.jpg" alt="Pump Time AI on a phone" width="520" height="1125" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Pump Time AI</span><span class="dash">&#8212;</span>
+          <span class="ln">A phone receptionist for concrete pumping companies</span>
+          <a class="go" href="https://pumptimeai.com/" target="_blank" rel="noopener">pumptimeai.com &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card tall">
+        <a class="shot" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">
+          <img src="assets/work/stella-m.jpg" alt="Stella Construction on a phone" width="520" height="1125" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Stella Construction LLC</span><span class="dash">&#8212;</span>
+          <span class="ln">Licensed trade business, built for a cautious buyer</span>
+          <a class="go" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">stellaconstructionllc.org &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="https://airikart.com/" target="_blank" rel="noopener">
+          <img src="assets/work/airikart.jpg" alt="Airikart website" width="1760" height="1100" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Airikart</span><span class="dash">&#8212;</span>
+          <span class="ln">Creative house where the work is left to carry the page</span>
+          <a class="go" href="https://airikart.com/" target="_blank" rel="noopener">airikart.com &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">
+          <img src="assets/work/scalesprime.jpg" alt="Scales Prime Construction website" width="1760" height="1100" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Scales Prime Construction</span><span class="dash">&#8212;</span>
+          <span class="ln">Local contractor, every screen pointing at one estimate request</span>
+          <a class="go" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">scalesprimeconstruction.com &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card tall">
+        <a class="shot" href="https://magictracker.cc/" target="_blank" rel="noopener">
+          <img src="assets/work/magictracker-m.jpg" alt="Magic Tracker on a phone" width="520" height="1125" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">Magic Tracker</span><span class="dash">&#8212;</span>
+          <span class="ln">Affiliate platform with merchant, affiliate and admin views</span>
+          <a class="go" href="https://magictracker.cc/" target="_blank" rel="noopener">magictracker.cc &#8599;</a>
+        </div>
+      </article>
+
+      <article class="card tall">
+        <a class="shot" href="https://decentcrowd.cc/" target="_blank" rel="noopener">
+          <img src="assets/work/decentcrowd-m.jpg" alt="DecentCrowd on a phone" width="520" height="1125" loading="lazy">
+        </a>
+        <div class="cap">
+          <span class="nm">DecentCrowd</span><span class="dash">&#8212;</span>
+          <span class="ln">My own project, crowdfunding that releases money in steps</span>
+          <a class="go" href="https://decentcrowd.cc/" target="_blank" rel="noopener">decentcrowd.cc &#8599;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ONE PROJECT THAT WAS REVIEWED IN PUBLIC ============ -->
+<section class="edge" style="margin-top:88px;">
+  <div class="wrap pad">
+    <p class="label" style="margin:0 0 14px;">Block Cycle</p>
+    <h2 class="h2" style="max-width:580px;">They put the old site and the new one side by side and asked their community to be honest.</h2>
+    <p class="body" style="max-width:560px;margin:16px 0 34px;">
+      Everything below is from that one thread, about that one rebuild. Surnames shortened.
+    </p>
+
+    <div class="thread">
+      <div class="cmt">
+        <div class="av" style="background:#fbbf24;">C</div>
+        <div class="bub"><p class="who">Chris P.</p><p class="said">Sanni, you're hired</p></div>
+      </div>
+      <div class="cmt indent">
+        <div class="av" style="background:#fbbf24;">C</div>
+        <div class="bub"><p class="who">Chris P.</p><p class="said">When can you start on the WealthWave site?</p></div>
+      </div>
+      <div class="cmt" style="margin-top:12px;">
+        <div class="av" style="background:#60a5fa;">J</div>
+        <div class="bub"><p class="who">Jessie F.</p><p class="said">Nice flow, easy to follow and up to date!</p></div>
+      </div>
+      <div class="cmt">
+        <div class="av" style="background:#f472b6;">S</div>
+        <div class="bub"><p class="who">Shanreca C.</p><p class="said">Awesome new look! Overall the new page looks more professional and clean.</p></div>
+      </div>
+      <div class="cmt">
+        <div class="av" style="background:#34d399;">C</div>
+        <div class="bub"><p class="who">Courtney B.</p><p class="said">It's so clean cut now 🔥🔥🔥🔥🔥</p></div>
+      </div>
+      <div class="cmt">
+        <div class="av" style="background:#a78bfa;">J</div>
+        <div class="bub"><p class="who">Jason C.</p><p class="said">Good look, I like it.</p></div>
+      </div>
+      <div class="cmt">
+        <div class="av" style="background:#fb923c;">P</div>
+        <div class="bub"><p class="who">Pacha T.</p><p class="said">Looks smooth to me!!!</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -242,188 +328,30 @@
   </div>
 </div>
 
-<!-- ============ THE GALLERY ============ -->
-<section id="work">
-
-  <div class="wrap" style="padding:64px 20px 40px;">
-    <p class="label" style="margin:0 0 14px;">The work</p>
-    <h2 class="h2" style="max-width:560px;">Nine live sites. Tap any one and it opens.</h2>
-  </div>
-
-  <!-- 1 : full bleed, with the strongest reply sitting on it -->
-  <div class="scene bleed">
-    <a class="shot wide" href="https://olivaritennis.com/" target="_blank" rel="noopener">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/work/olivaritennis-m.jpg" width="520" height="1125">
-        <img src="assets/work/olivaritennis.jpg" alt="Olivari Tennis" width="1760" height="1100" fetchpriority="high">
-      </picture>
-      <span class="tag">olivaritennis.com <span class="arw">↗</span></span>
-    </a>
-    </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 2 : a wide shot with its own phone leaning on it -->
-  <div class="wrap">
-    <div class="scene cluster">
-      <a class="shot wide framed big" href="https://blockcycle.org/" target="_blank" rel="noopener">
-        <img src="assets/work/blockcycle.jpg" alt="Block Cycle" width="1100" height="687" loading="lazy">
-        <span class="tag">blockcycle.org <span class="arw">↗</span></span>
-      </a>
-      <a class="phone ph" href="https://blockcycle.org/" target="_blank" rel="noopener">
-        <img src="assets/work/blockcycle-m.jpg" alt="Block Cycle on a phone" width="520" height="1125" loading="lazy">
-      </a>
-    </div>
-  </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 3 : full bleed -->
-  <div class="scene bleed">
-    <a class="shot wide" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/work/buildher-m.jpg" width="520" height="1125">
-        <img src="assets/work/buildher.jpg" alt="BuildHer Construction" width="1760" height="1100" loading="lazy">
-      </picture>
-      <span class="tag">buildherconstruction.com <span class="arw">↗</span></span>
-    </a>
-    </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 4 : three phones, fanned -->
-  <div class="wrap">
-    <div class="scene fan">
-      <a class="phone" href="https://pumptimeai.com/" target="_blank" rel="noopener">
-        <img src="assets/work/pumptimeai-m.jpg" alt="Pump Time AI on a phone" width="520" height="1125" loading="lazy">
-      </a>
-      <a class="phone" href="https://olivaritennis.com/" target="_blank" rel="noopener">
-        <img src="assets/work/olivaritennis-m.jpg" alt="Olivari Tennis on a phone" width="520" height="1125" loading="lazy">
-      </a>
-      <a class="phone" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">
-        <img src="assets/work/stella-m.jpg" alt="Stella Construction on a phone" width="520" height="1125" loading="lazy">
-      </a>
-    </div>
-  </div>
-
-  <div class="gap-m fan-gap"></div>
-
-  <!-- 5 : full bleed -->
-  <div class="scene bleed">
-    <a class="shot wide" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/work/scalesprime-m.jpg" width="520" height="1125">
-        <img src="assets/work/scalesprime.jpg" alt="Scales Prime Construction" width="1760" height="1100" loading="lazy">
-      </picture>
-      <span class="tag">scalesprimeconstruction.com <span class="arw">↗</span></span>
-    </a>
-    </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 6 : two wide shots at different heights -->
-  <div class="wrap">
-    <div class="scene pair">
-      <a class="shot wide framed" href="https://magictracker.cc/" target="_blank" rel="noopener">
-        <img src="assets/work/magictracker.jpg" alt="Magic Tracker" width="1100" height="687" loading="lazy">
-        <span class="tag">magictracker.cc <span class="arw">↗</span></span>
-      </a>
-      <a class="shot wide framed" href="https://decentcrowd.cc/" target="_blank" rel="noopener">
-        <img src="assets/work/decentcrowd.jpg" alt="DecentCrowd" width="1100" height="687" loading="lazy">
-        <span class="tag">decentcrowd.cc <span class="arw">↗</span></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 7 : full bleed -->
-  <div class="scene bleed">
-    <a class="shot wide" href="https://airikart.com/" target="_blank" rel="noopener">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/work/airikart-m.jpg" width="520" height="1125">
-        <img src="assets/work/airikart.jpg" alt="Airikart" width="1760" height="1100" loading="lazy">
-      </picture>
-      <span class="tag">airikart.com <span class="arw">↗</span></span>
-    </a>
-    </div>
-
-  <div class="gap-l"></div>
-
-  <!-- 8 : a wide shot with its phone, mirrored -->
-  <div class="wrap">
-    <div class="scene cluster right">
-      <a class="shot wide framed big" href="https://stellaconstructionllc.org/" target="_blank" rel="noopener">
-        <img src="assets/work/stella.jpg" alt="Stella Construction LLC" width="1100" height="687" loading="lazy">
-        <span class="tag">stellaconstructionllc.org <span class="arw">↗</span></span>
-      </a>
-      <a class="phone ph" href="https://magictracker.cc/" target="_blank" rel="noopener">
-        <img src="assets/work/magictracker-m.jpg" alt="Magic Tracker on a phone" width="520" height="1125" loading="lazy">
-      </a>
-    </div>
-  </div>
-
-  <div class="gap-m"></div>
-
-  <!-- 9 : three more phones -->
-  <div class="wrap">
-    <div class="scene fan">
-      <a class="phone" href="https://buildherconstruction.com/" target="_blank" rel="noopener">
-        <img src="assets/work/buildher-m.jpg" alt="BuildHer on a phone" width="520" height="1125" loading="lazy">
-      </a>
-      <a class="phone" href="https://scalesprimeconstruction.com/" target="_blank" rel="noopener">
-        <img src="assets/work/scalesprime-m.jpg" alt="Scales Prime on a phone" width="520" height="1125" loading="lazy">
-      </a>
-      <a class="phone" href="https://decentcrowd.cc/" target="_blank" rel="noopener">
-        <img src="assets/work/decentcrowd-m.jpg" alt="DecentCrowd on a phone" width="520" height="1125" loading="lazy">
-      </a>
-    </div>
-  </div>
-
-  <div class="gap-m fan-gap"></div>
-
-  <!-- 10 : full bleed close -->
-  <div class="scene bleed">
-    <a class="shot wide" href="https://pumptimeai.com/" target="_blank" rel="noopener">
-      <picture>
-        <source media="(max-width: 760px)" srcset="assets/work/pumptimeai-m.jpg" width="520" height="1125">
-        <img src="assets/work/pumptimeai.jpg" alt="Pump Time AI" width="1100" height="687" loading="lazy">
-      </picture>
-      <span class="tag">pumptimeai.com <span class="arw">↗</span></span>
-    </a>
-    </div>
-
-  <div class="wrap" style="padding:34px 20px 0;">
-    <p style="font-size:12.5px;color:var(--faint);margin:0;max-width:620px;line-height:1.65;">
-      Every shot is the live site. DecentCrowd is my own project rather than a client job.
-    </p>
-  </div>
-</section>
-
 <!-- ============ HOW ============ -->
-<section id="how" class="edge" style="margin-top:80px;">
+<section id="how">
   <div class="wrap pad">
     <p class="label" style="margin:0 0 14px;">How it works</p>
-    <h2 class="h2" style="margin-bottom:46px;">You see it before you decide anything.</h2>
+    <h2 class="h2" style="margin-bottom:42px;">You see it before you decide anything.</h2>
     <div class="grid4">
       <div>
         <p class="stepno">01</p>
-        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">I build it first</h3>
+        <h3 style="font-size:16.5px;font-weight:700;margin:0 0 8px;">I build it first</h3>
         <p class="body" style="font-size:14.5px;">I look at what you build and who hires you, then build the site I think you should have. Nothing is agreed at this point.</p>
       </div>
       <div>
         <p class="stepno">02</p>
-        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">You look at it</h3>
+        <h3 style="font-size:16.5px;font-weight:700;margin:0 0 8px;">You look at it</h3>
         <p class="body" style="font-size:14.5px;">If you do not like it, that is the end of it and it cost you nothing. Plenty of people stop here.</p>
       </div>
       <div>
         <p class="stepno">03</p>
-        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">Fifteen minutes</h3>
+        <h3 style="font-size:16.5px;font-weight:700;margin:0 0 8px;">Fifteen minutes</h3>
         <p class="body" style="font-size:14.5px;">If you want it, we talk about what it takes to make it live, what it costs, and when.</p>
       </div>
       <div>
         <p class="stepno">04</p>
-        <h3 style="font-size:17px;font-weight:700;margin:0 0 8px;">It goes live</h3>
+        <h3 style="font-size:16.5px;font-weight:700;margin:0 0 8px;">It goes live</h3>
         <p class="body" style="font-size:14.5px;">On your own domain and hosting, which you own, and I show you how to change it yourself.</p>
       </div>
     </div>
@@ -434,27 +362,29 @@
 <section class="edge">
   <div class="narrow pad" style="text-align:center;">
     <h2 class="h2">Want to see what yours would look like?</h2>
-    <p class="lead" style="margin:20px auto 34px;max-width:480px;">
+    <p class="lead" style="margin:18px auto 30px;max-width:460px;">
       Fifteen minutes, and most of the time I will have already built something before we speak.
     </p>
     <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" class="btn" style="padding:16px 32px;font-size:16px;">Book a 15 minute call</a>
   </div>
 </section>
 
-<footer class="edge" style="padding:36px 0;">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:13.5px;color:var(--faint);">
+<footer class="edge" style="padding:34px 0 44px;">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;font-size:13.5px;color:var(--faint);">
     <span>Sanni Sanni — I build websites</span>
-    <div style="display:flex;gap:22px;">
+    <div style="display:flex;flex-wrap:wrap;gap:20px;">
       <a href="https://www.instagram.com/iamsannisanni/" target="_blank" rel="noopener" style="text-decoration:none;">Instagram</a>
       <a href="https://cal.com/sanni-sanni/website-build" target="_blank" rel="noopener" style="text-decoration:none;">Book a call</a>
     </div>
   </div>
+  <div class="wrap" style="margin-top:14px;font-size:12.5px;color:var(--faint);line-height:1.6;">
+    <a class="quiet" href="https://www.coursera.org/account/accomplishments/professional-cert/3ISGYFGAILQ6"
+       target="_blank" rel="noopener">Google certified UX designer</a>
+  </div>
 </footer>
 
 <script>
-  // The section links are hidden on a narrow screen so the booking button
-  // never gets pushed off the bar. Done here rather than with a media query
-  // because they must stay hidden in the markup for small screens too.
+  // Hidden on a narrow screen so the booking button is never crowded.
   if (window.matchMedia('(min-width: 680px)').matches) {
     document.querySelectorAll('[data-sm]').forEach(function (el) { el.style.display = 'inline'; });
   }
