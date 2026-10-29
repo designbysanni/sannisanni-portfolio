@@ -87,11 +87,13 @@
 
     .feature { margin-top: 30px; aspect-ratio: 9 / 15; border-radius: 16px; }
     @media (min-width: 900px) {
-      /* A shorter frame than the shot, so there is overflow to slide. Pushing
-         the shot to the bottom of it puts the client's headline where the fold
-         lands instead of their nav bar, and nothing readable gets halved. */
-      .feature { margin-top: 36px; aspect-ratio: 20 / 9; }
-      .feature img { object-position: center bottom; }
+      /* The frame is the same shape as the capture, so the whole hero shows:
+         their menu across the top, the headline, and both buttons. Nothing is
+         sliced off an edge and nothing is pulled off centre. */
+      .feature { margin-top: 36px; aspect-ratio: 16 / 9; }
+      /* cover, not contain: the ratios match exactly, so cover shows the whole
+         shot anyway and cannot leave a hairline bar from rounding. */
+      .feature img { object-position: center; }
     }
 
     .cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 9px; margin: 16px 0 0; }
@@ -124,14 +126,17 @@
     @media (max-width: 899px) { .card.tall .shot { aspect-ratio: 4 / 5; } }
 
     /* ---- the one project that was reviewed in public ---- */
-    .thread { display: grid; gap: 11px; max-width: 620px; }
-    .cmt { display: flex; gap: 11px; align-items: flex-start; }
-    .cmt.indent { padding-left: 32px; }
-    .av { width: 32px; height: 32px; border-radius: 999px; flex: 0 0 32px;
-          display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: #1a1a1a; }
-    .bub { background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; padding: 11px 15px; min-width: 0; }
-    .who { font-size: 13px; font-weight: 700; margin: 0 0 3px; }
-    .said { font-size: 14.5px; line-height: 1.5; color: #e4e4e7; margin: 0; }
+    .revs { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 700px) { .revs { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .revs { grid-template-columns: repeat(3, 1fr); } }
+    .rev {
+      background: var(--panel); border: 1px solid var(--line-soft);
+      border-radius: 14px; padding: 20px 22px 18px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .stars { color: #f5b544; font-size: 14px; letter-spacing: .14em; line-height: 1; }
+    .said { font-size: 15.5px; line-height: 1.55; color: #e4e4e7; margin: 0; flex: 1; }
+    .who { font-size: 13px; font-weight: 700; color: var(--muted); margin: 0; }
 
     .statbar { border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 24px 0; }
@@ -215,17 +220,14 @@
         </div>
       </article>
 
-      <article class="card tall">
-        <a class="shot" href="https://pumptimeai.com/" target="_blank" rel="noopener">
-          <picture>
-            <source media="(max-width: 899px)" srcset="assets/work/pumptimeai-m.jpg" width="520" height="1125">
-            <img src="assets/work/pumptimeai.jpg" alt="Pump Time AI website" width="1100" height="619" loading="lazy">
-          </picture>
+      <article class="card">
+        <a class="shot" href="https://airikart.com/" target="_blank" rel="noopener">
+          <img src="assets/work/airikart.jpg" alt="Airikart website" width="1100" height="619" loading="lazy">
         </a>
         <div class="cap">
-          <span class="nm">Pump Time AI</span><span class="dash">&#8212;</span>
-          <span class="ln">A phone receptionist for concrete pumping companies</span>
-          <a class="go" href="https://pumptimeai.com/" target="_blank" rel="noopener">pumptimeai.com &#8599;</a>
+          <span class="nm">Airikart</span><span class="dash">&#8212;</span>
+          <span class="ln">Creative house where the work is left to carry the page</span>
+          <a class="go" href="https://airikart.com/" target="_blank" rel="noopener">airikart.com &#8599;</a>
         </div>
       </article>
 
@@ -243,14 +245,17 @@
         </div>
       </article>
 
-      <article class="card">
-        <a class="shot" href="https://airikart.com/" target="_blank" rel="noopener">
-          <img src="assets/work/airikart.jpg" alt="Airikart website" width="1100" height="619" loading="lazy">
+      <article class="card tall">
+        <a class="shot" href="https://pumptimeai.com/" target="_blank" rel="noopener">
+          <picture>
+            <source media="(max-width: 899px)" srcset="assets/work/pumptimeai-m.jpg" width="520" height="1125">
+            <img src="assets/work/pumptimeai.jpg" alt="Pump Time AI website" width="1100" height="619" loading="lazy">
+          </picture>
         </a>
         <div class="cap">
-          <span class="nm">Airikart</span><span class="dash">&#8212;</span>
-          <span class="ln">Creative house where the work is left to carry the page</span>
-          <a class="go" href="https://airikart.com/" target="_blank" rel="noopener">airikart.com &#8599;</a>
+          <span class="nm">Pump Time AI</span><span class="dash">&#8212;</span>
+          <span class="ln">A phone receptionist for concrete pumping companies</span>
+          <a class="go" href="https://pumptimeai.com/" target="_blank" rel="noopener">pumptimeai.com &#8599;</a>
         </div>
       </article>
 
@@ -306,35 +311,37 @@
       Everything below is from that one thread, about that one rebuild. Surnames shortened.
     </p>
 
-    <div class="thread">
-      <div class="cmt">
-        <div class="av" style="background:#fbbf24;">C</div>
-        <div class="bub"><p class="who">Chris P.</p><p class="said">Sanni, you're hired</p></div>
-      </div>
-      <div class="cmt indent">
-        <div class="av" style="background:#fbbf24;">C</div>
-        <div class="bub"><p class="who">Chris P.</p><p class="said">When can you start on the WealthWave site?</p></div>
-      </div>
-      <div class="cmt" style="margin-top:12px;">
-        <div class="av" style="background:#60a5fa;">J</div>
-        <div class="bub"><p class="who">Jessie F.</p><p class="said">Nice flow, easy to follow and up to date!</p></div>
-      </div>
-      <div class="cmt">
-        <div class="av" style="background:#f472b6;">S</div>
-        <div class="bub"><p class="who">Shanreca C.</p><p class="said">Awesome new look! Overall the new page looks more professional and clean.</p></div>
-      </div>
-      <div class="cmt">
-        <div class="av" style="background:#34d399;">C</div>
-        <div class="bub"><p class="who">Courtney B.</p><p class="said">It's so clean cut now 🔥🔥🔥🔥🔥</p></div>
-      </div>
-      <div class="cmt">
-        <div class="av" style="background:#a78bfa;">J</div>
-        <div class="bub"><p class="who">Jason C.</p><p class="said">Good look, I like it.</p></div>
-      </div>
-      <div class="cmt">
-        <div class="av" style="background:#fb923c;">P</div>
-        <div class="bub"><p class="who">Pacha T.</p><p class="said">Looks smooth to me!!!</p></div>
-      </div>
+    <div class="revs">
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">Sanni, you're hired. When can you start on the WealthWave site?</blockquote>
+        <figcaption class="who">Chris P.</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">Awesome new look! Overall the new page looks more professional and clean.</blockquote>
+        <figcaption class="who">Shanreca C.</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">Nice flow, easy to follow and up to date!</blockquote>
+        <figcaption class="who">Jessie F.</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">It's so clean cut now 🔥🔥🔥🔥🔥</blockquote>
+        <figcaption class="who">Courtney B.</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">Looks smooth to me!!!</blockquote>
+        <figcaption class="who">Pacha T.</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote class="said">Good look, I like it.</blockquote>
+        <figcaption class="who">Jason C.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
